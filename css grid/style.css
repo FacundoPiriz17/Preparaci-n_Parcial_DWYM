@@ -1,0 +1,190 @@
+/* styles.css
+   Comentarios rápidos incluidos donde corresponde para explicar qué hace cada propiedad.
+*/
+
+/* Reset y estilo base */
+* { box-sizing: border-box; }
+body {
+    font-family: Inter, system-ui, -apple-system, "Helvetica Neue", Arial;
+    margin: 24px;
+    line-height: 1.35;
+    color: #0f172a;
+    background: linear-gradient(180deg, #fbfbff 0%, #f3f6ff 100%);
+}
+header h1 { margin: 0 0 6px; font-size: 1.6rem; }
+header p { margin: 0 0 18px; color: #334155; }
+
+/* Common layout for each example */
+main { display: grid; gap: 18px; }
+.example {
+    background: white;
+    border-radius: 12px;
+    padding: 14px;
+    box-shadow: 0 6px 18px rgba(2,6,23,0.06);
+}
+.example h2 { margin: 0 0 6px; font-size: 1.05rem; }
+.example .desc { margin: 0 0 10px; color: #475569; font-size: 0.95rem; }
+
+/* Demo container style */
+.demo {
+    border: 1px dashed #e2e8f0;
+    padding: 10px;
+    border-radius: 8px;
+    background: linear-gradient(180deg, rgba(99,102,241,0.02), rgba(99,102,241,0.01));
+    min-height: 80px;
+    display: flex;           /* por defecto para centrar la rejilla demo */
+    align-items: center;
+    justify-content: center;
+}
+
+/* Cada item visual */
+.demo .item {
+    background: linear-gradient(180deg,#eef2ff,#eef6ff);
+    border: 1px solid #c7d2fe;
+    padding: 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* ---------- display: grid / inline-grid ---------- */
+.grid-display .item { width: 48px; height: 48px; display:flex; align-items:center; justify-content:center; }
+.grid-display {
+    display: grid;               /* crea una rejilla simple */
+    grid-auto-flow: row;         /* default: coloca en filas */
+    grid-template-columns: repeat(3, 48px);
+    gap: 8px;
+}
+.grid-display.inline { display: inline-grid; }
+
+/* ---------- grid-template-columns / grid-template-rows ---------- */
+/* grid-template define tracks explícitos */
+.grid-template {
+    display: grid;
+    grid-template-columns: 100px 1fr 80px; /* tres columnas, la del medio es flexible */
+    grid-template-rows: 40px 80px;         /* dos filas con distinto alto */
+    gap: 8px;
+}
+.grid-template .item { min-width: 0; }
+
+/* ---------- repeat(), minmax(), auto-fit / auto-fill ---------- */
+/* minmax(min, max) y repeat(auto-fit, minmax(...)) permiten rejillas adaptativas */
+.grid-repeat {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 10px;
+    width: 100%;
+}
+
+/* ---------- gap / row-gap / column-gap ---------- */
+.grid-gap {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px 6px; /* row-gap then column-gap */
+    padding: 14px;
+}
+
+/* ---------- justify-items / align-items / place-items ---------- */
+/* justify-items: controla alineación horizontal dentro de cada celda
+   align-items: controla alineación vertical dentro de cada celda
+   place-items: shorthand para ambos */
+.grid-items {
+    display: grid;
+    grid-template-columns: repeat(3, 120px);
+    grid-auto-rows: 60px;
+    justify-items: center;  /* centra horizontalmente el contenido de cada celda */
+    align-items: end;       /* alinea abajo el contenido de cada celda */
+    gap: 8px;
+}
+
+/* ---------- justify-content / align-content / place-content ---------- */
+/* Estas alinean el conjunto de tracks dentro del contenedor cuando hay espacio extra */
+.grid-content {
+    display: grid;
+    height: 160px; /* espacio extra para ver efecto */
+    grid-template-columns: repeat(3, 90px);
+    grid-auto-rows: 40px;
+    justify-content: center;  /* mueve todo el conjunto horizontalmente */
+    align-content: space-around; /* distribuye verticalmente */
+}
+
+/* ---------- grid-auto-flow (row / column / dense) ---------- */
+/* dense intenta rellenar huecos (puede cambiar orden visual) */
+.grid-autoflow {
+    display: grid;
+    grid-template-columns: repeat(4, 70px);
+    grid-auto-rows: 60px;
+    grid-auto-flow: row dense;
+    gap: 8px;
+}
+.grid-autoflow .big { grid-column: span 2; grid-row: span 2; }
+
+/* ---------- grid-auto-rows / grid-auto-columns (implícito) ---------- */
+/* Si hay más items que tracks explícitos, se crean tracks implícitos con este tamaño */
+.grid-auto {
+    display: grid;
+    grid-template-columns: repeat(3, 80px);
+    grid-auto-rows: 40px; /* filas adicionales tendrán 40px */
+    gap: 8px;
+}
+
+/* ---------- grid-template-areas / grid-area ---------- */
+/* Nombrar áreas para ubicar items por nombre */
+.grid-areas {
+    display: grid;
+    grid-template-columns: 1fr 220px;
+    grid-template-rows: 60px 1fr 50px;
+    grid-template-areas:
+    "header header"
+    "main aside"
+    "footer footer";
+    gap: 8px;
+}
+.grid-areas .a { grid-area: header; display:flex; align-items:center; justify-content:center; }
+.grid-areas .b { grid-area: aside; display:flex; align-items:center; justify-content:center; }
+.grid-areas .c { grid-area: main; display:flex; align-items:center; justify-content:center; }
+.grid-areas .d { grid-area: aside; /* intentionally same area name to show overlap*/ }
+.grid-areas .e { grid-area: footer; display:flex; align-items:center; justify-content:center; }
+
+/* Ajustes visuales para que los bloques del ejemplo de áreas se vean distintos */
+.grid-areas .a, .grid-areas .b, .grid-areas .c, .grid-areas .e {
+    background: linear-gradient(180deg,#fff7ed,#ffedd5);
+    border: 1px solid #fed7aa;
+    font-weight:700;
+}
+
+/* ---------- grid-column / grid-row / span ---------- */
+.grid-span {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+}
+.grid-span .wide {
+    grid-column: 2 / span 2; /* empieza en línea 2 y ocupa 2 columnas */
+    align-self: stretch;
+}
+
+/* ---------- justify-self / align-self / place-self ---------- */
+.grid-self {
+    display: grid;
+    grid-template-columns: repeat(3, 120px);
+    grid-auto-rows: 120px;
+    gap: 8px;
+}
+.grid-self .left { justify-self: start; align-self: start; }    /* arriba izquierda */
+.grid-self .center { justify-self: center; align-self: center; }/* centro */
+.grid-self .right { justify-self: end; align-self: end; }      /* abajo derecha */
+
+/* pequeños ajustes visuales */
+.item { min-width: 40px; min-height: 36px; display:flex; align-items:center; justify-content:center; }
+.demo .item { box-shadow: 0 2px 6px rgba(15,23,42,0.06); }
+
+/* responsive: que se vea razonable en pantallas pequeñas */
+@media (max-width:700px){
+    .grid-template { grid-template-columns: 1fr; grid-template-rows: repeat(6, auto); }
+    .grid-areas { grid-template-columns: 1fr; grid-template-areas:
+    "header"
+    "main"
+    "aside"
+    "footer"; }
+}

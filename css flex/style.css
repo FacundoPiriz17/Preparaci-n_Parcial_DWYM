@@ -1,0 +1,103 @@
+/*Guía visual de Flexbox — cada bloque tiene un breve comentario explicando la propiedad.
+
+/* ---------- Reset mínimo y tipografía ---------- */
+* { box-sizing: border-box; }
+body {
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    margin: 0;
+    padding: 1.5rem;
+    background: #f6f9fb;
+    color: #0b1220;
+    line-height: 1.35;
+}
+header { margin-bottom: 1rem; }
+h1 { margin: 0 0 0.25rem 0; font-size: 1.6rem; }
+.intro { margin: 0 0 0.75rem 0; color: #334155; }
+
+/* ---------- Helpers visuales ---------- */
+.example { background: #fff; padding: 1rem; border-radius: 10px; box-shadow: 0 6px 14px rgba(16,24,40,0.04); margin-bottom: 1rem; }
+.example h2 { margin: 0 0 0.25rem 0; font-size: 1.05rem; }
+.desc { margin: 0 0 0.7rem 0; color: #475569; font-size: 0.95rem; }
+
+/* Contenedores visuales genéricos */
+.box { border: 1px dashed #cbd5e1; padding: 0.75rem; border-radius: 8px; background: linear-gradient(180deg, rgba(0,0,0,0.01), transparent); }
+.large { height: 220px; }
+.demo { height: 80px; display: flex; align-items: center; justify-content: flex-start; gap: 0.5rem; overflow: auto; }
+
+/* Flex items básicos */
+.item {
+    min-width: 44px;
+    min-height: 44px;
+    padding: 0.6rem 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg,#ffffff,#f1f5f9);
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    font-weight: 600;
+    color: #0f172a;
+    box-shadow: 0 2px 6px rgba(2,6,23,0.03);
+}
+
+/* variantes para demo */
+.tall { height: 60px; }
+.long { min-width: 160px; }
+
+/* ---------- Ejemplos por propiedad ---------- */
+
+/* display: flex (activa flexbox) */
+.display-flex { display: flex; }
+
+/* flex-direction */
+.fd-row { display:flex; flex-direction: row; }
+.fd-column { display:flex; flex-direction: column; height: 120px; }
+.fd-row-reverse { display:flex; flex-direction: row-reverse; }
+.fd-column-reverse { display:flex; flex-direction: column-reverse; height: 120px; }
+
+/* flex-wrap */
+.fw-wrap { display:flex; flex-wrap: wrap; gap: 8px; height: 120px; }
+
+/* justify-content */
+.jc-flex-start { display:flex; justify-content: flex-start; }
+.jc-center { display:flex; justify-content: center; }
+.jc-space-between { display:flex; justify-content: space-between; }
+.jc-space-around { display:flex; justify-content: space-around; }
+.jc-space-evenly { display:flex; justify-content: space-evenly; }
+.jc-flex-end { display:flex; justify-content: flex-end; }
+
+/* align-items */
+.ai-stretch { display:flex; align-items: stretch; height: 120px; }
+.ai-center { display:flex; align-items: center; height: 120px; }
+.ai-flex-end { display:flex; align-items: flex-end; height: 120px; }
+
+/* align-content — necesita varias líneas (wrap) */
+.ac-space-between {
+    display:flex;
+    flex-wrap: wrap;
+    align-content: space-between; /* mueve las líneas en el eje cruzado */
+    height: 220px;
+    gap: 6px;
+}
+
+/* order */
+.order-3 { order: 3; }
+.order--1 { order: -1; }
+
+/* flex shorthand / grow */
+.flex-1 { flex: 1 1 0%; }   /* puede crecer 1x */
+.flex-2 { flex: 2 1 0%; }   /* crecerá el doble que el anterior */
+.box > .item.fixed { flex: 0 0 auto; }
+
+/* align-self (sobrescribe align-items para un item) */
+.align-self-center { align-self: center; }
+
+/* gap */
+.gap-sample { display:flex; gap: 18px; }
+
+/* ---------- Grid helpers para mostrar varias demos ---------- */
+.grid-two { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin-bottom: 0.6rem; }
+.grid-three { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8rem; margin-top: 0.6rem; }
+
+/* ---------- Footer ---------- */
+footer { margin-top: 1rem; color: #334155; font-size: 0.9rem; }

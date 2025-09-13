@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Guía visual de CSS Grid — ejemplos</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header>
+    <h1>Guía visual de <code>display: grid</code></h1>
+    <p>Cada bloque muestra la propiedad de Grid, una breve explicación y una demo.</p>
+</header>
+
+<main>
+    <!-- Demo: display grid vs inline-grid -->
+    <section class="example">
+        <h2>display: grid / inline-grid</h2>
+        <p class="desc">Grid crea un contenedor de rejilla. <code>inline-grid</code> se comporta como inline.</p>
+        <div class="demo grid-display">
+            <div class="item">1</div><div class="item">2</div><div class="item">3</div>
+        </div>
+    </section>
+
+    <!-- Demo: grid-template-columns / rows -->
+    <section class="example">
+        <h2>grid-template-columns / grid-template-rows</h2>
+        <p class="desc">Define las columnas y filas explícitas. Se pueden usar <code>fr</code>, <code>px</code>, <code>%</code>, etc.</p>
+        <div class="demo grid-template">
+            <div class="item">A</div><div class="item">B</div><div class="item">C</div>
+            <div class="item">D</div><div class="item">E</div><div class="item">F</div>
+        </div>
+    </section>
+
+    <!-- Demo: repeat(), minmax(), auto-fit, auto-fill -->
+    <section class="example">
+        <h2>repeat(), minmax(), auto-fit / auto-fill</h2>
+        <p class="desc">Atajos para repetir columnas y controlar tamaños flexibles.</p>
+        <div class="demo grid-repeat">
+            <div class="item">1</div><div class="item">2</div><div class="item">3</div>
+            <div class="item">4</div><div class="item">5</div><div class="item">6</div>
+        </div>
+    </section>
+
+    <!-- Demo: gap, row-gap, column-gap -->
+    <section class="example">
+        <h2>gap / row-gap / column-gap</h2>
+        <p class="desc">Espacio entre filas y columnas.</p>
+        <div class="demo grid-gap">
+            <div class="item">A</div><div class="item">B</div><div class="item">C</div>
+            <div class="item">D</div><div class="item">E</div><div class="item">F</div>
+        </div>
+    </section>
+
+    <!-- Demo: justify-items, align-items, place-items -->
+    <section class="example">
+        <h2>justify-items / align-items / place-items</h2>
+        <p class="desc">Alinean el contenido de las celdas (cross-axis y main-axis dentro de cada celda).</p>
+        <div class="demo grid-items">
+            <div class="item">uno</div><div class="item">dos</div><div class="item">tres</div>
+            <div class="item">cuatro</div><div class="item">cinco</div><div class="item">seis</div>
+        </div>
+    </section>
+
+    <!-- Demo: justify-content, align-content, place-content -->
+    <section class="example">
+        <h2>justify-content / align-content / place-content</h2>
+        <p class="desc">Alinean el conjunto de tracks (todo el grid) dentro del contenedor cuando hay espacio extra.</p>
+        <div class="demo grid-content">
+            <div class="item">A</div><div class="item">B</div><div class="item">C</div>
+        </div>
+    </section>
+
+    <!-- Demo: grid-auto-flow (row / column / dense) -->
+    <section class="example">
+        <h2>grid-auto-flow</h2>
+        <p class="desc">Controla si los ítems implícitos se colocan por filas o columnas y si se intenta compactar (<code>dense</code>).</p>
+        <div class="demo grid-autoflow">
+            <div class="item big">1</div><div class="item">2</div><div class="item">3</div>
+            <div class="item">4</div><div class="item">5</div><div class="item">6</div>
+        </div>
+    </section>
+
+    <!-- Demo: implicit grid - grid-auto-rows / grid-auto-columns -->
+    <section class="example">
+        <h2>grid-auto-rows / grid-auto-columns</h2>
+        <p class="desc">Define el tamaño de filas/columnas creadas implícitamente cuando hay más elementos que tracks explícitos.</p>
+        <div class="demo grid-auto">
+            <div class="item">1</div><div class="item">2</div><div class="item">3</div>
+            <div class="item">4</div><div class="item">5</div><div class="item">6</div>
+            <div class="item">7</div><div class="item">8</div>
+        </div>
+    </section>
+
+    <!-- Demo: grid-template-areas / grid-area -->
+    <section class="example">
+        <h2>grid-template-areas / grid-area</h2>
+        <p class="desc">Nombras zonas del grid y colocas ítems por nombre (más semántico y legible).</p>
+        <div class="demo grid-areas">
+            <div class="a">Header</div>
+            <div class="b">Menu</div>
+            <div class="c">Main</div>
+            <div class="d">Aside</div>
+            <div class="e">Footer</div>
+        </div>
+    </section>
+
+    <!-- Demo: grid-column / grid-row / grid (shorthand) / span -->
+    <section class="example">
+        <h2>grid-column / grid-row / grid (shorthand) / span</h2>
+        <p class="desc">Coloca y hace span de elementos sobre líneas de la rejilla.</p>
+        <div class="demo grid-span">
+            <div class="item">1</div><div class="item wide">2 (span 2)</div><div class="item">3</div>
+            <div class="item">4</div><div class="item">5</div><div class="item">6</div>
+        </div>
+    </section>
+
+    <!-- Demo: justify-self / align-self / place-self -->
+    <section class="example">
+        <h2>justify-self / align-self / place-self</h2>
+        <p class="desc">Alineación individual por celda (anula justify-items / align-items).</p>
+        <div class="demo grid-self">
+            <div class="item left">L</div><div class="item center">C</div><div class="item right">R</div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Ejemplos: <strong>recomendación</strong> — prueba a cambiar tamaños y verás cómo cambia el layout.</p>
+    </footer>
+</main>
+</body>
+</html>
