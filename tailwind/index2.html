@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <title>Guía de Tailwind CSS Avanzada</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 p-8">
+<h1 class="text-4xl font-bold mb-8">📘 Guía Avanzada de Tailwind CSS</h1>
+
+<!-- DARK MODE -->
+<section class="mb-12">
+    <h2 class="text-2xl font-semibold mb-4">🌑 Dark Mode</h2>
+    <p class="p-4 bg-white dark:bg-gray-800 rounded shadow">
+        Usa <code>dark:</code> para aplicar estilos cuando el modo oscuro esté activo.
+    </p>
+</section>
+
+<!-- RESPONSIVE -->
+<section class="mb-12">
+    <h2 class="text-2xl font-semibold mb-4">📱 Responsive</h2>
+    <div class="bg-blue-200 sm:bg-green-200 md:bg-yellow-200 lg:bg-pink-200 xl:bg-purple-200 p-4 rounded">
+        Cambia de color según el tamaño de pantalla:<br>
+        <code>sm:, md:, lg:, xl:</code>
+    </div>
+</section>
+
+<!-- CURSOR -->
+<section class="mb-12">
+    <h2 class="text-2xl font-semibold mb-4">🖱️ Cursor</h2>
+    <div class="flex gap-4">
+        <button class="p-2 bg-gray-200 rounded cursor-pointer">cursor-pointer</button>
+        <button class="p-2 bg-gray-200 rounded cursor-wait">cursor-wait</button>
+        <button class="p-2 bg-gray-200 rounded cursor-not-allowed">cursor-not-allowed</button>
+    </div>
+</section>
+
+<!-- PSEUDOCLASES -->
+<section class="mb-12">
+    <h2 class="text-2xl font-semibold mb-4">🎯 Pseudoclases</h2>
+    <button class="px-4 py-2 rounded bg-blue-500 text-white hover:bg-blue-700 focus:ring-2 focus:ring-blue-300 active:bg-blue-900">
+        Hover, Focus y Active
+    </button>
+</section>
+
+<!-- DISPLAY & LAYOUT -->
+<section class="mb-12">
+    <h2 class="text-2xl font-semibold mb-4">📐 Display & Layout</h2>
+    <div class="space-y-2">
+        <div class="block bg-gray-200 p-2">block → Ocupa toda la línea</div>
+        <span class="inline bg-gray-200 p-2">inline → Solo su contenido</span>
+        <div class="inline-block bg-gray-200 p-2">inline-block → Bloque en línea</div>
+        <div class="hidden sm:block bg-gray-200 p-2">hidden → Oculto (aparece en sm)</div>
+    </div>
+</section>
+
+<!-- POSICIONAMIENTO -->
+<section class="mb-12 relative h-40 bg-gray-100 rounded">
+    <h2 class="text-2xl font-semibold mb-4">📍 Posicionamiento</h2>
+    <div class="absolute top-2 left-2 bg-red-400 p-2 rounded">absolute top-2 left-2</div>
+    <div class="absolute bottom-2 right-2 bg-green-400 p-2 rounded">absolute bottom-2 right-2</div>
+    <div class="relative top-4 left-20 bg-blue-400 p-2 rounded">relative top-4 left-20</div>
+</section>
+
+<!-- TRANSPARENCIAS -->
+<section class="mb-12">
+    <h2 class="text-2xl font-semibold mb-4">🌫️ Transparencias y Opacidad</h2>
+    <div class="flex gap-4">
+        <div class="p-4 bg-blue-500 text-white opacity-100 rounded">opacity-100</div>
+        <div class="p-4 bg-blue-500 text-white opacity-75 rounded">opacity-75</div>
+        <div class="p-4 bg-blue-500 text-white opacity-50 rounded">opacity-50</div>
+        <div class="p-4 bg-blue-500 text-white opacity-25 rounded">opacity-25</div>
+    </div>
+</section>
+
+<!-- FLEX AVANZADO -->
+<section class="mb-12">
+    <h2 class="text-2xl font-semibold mb-4">➕ Flex Avanzado</h2>
+    <div class="flex flex-col sm:flex-row gap-2 bg-gray-100 p-4">
+        <div class="flex-1 bg-red-300 p-4 text-center">flex-1 → Ocupa espacio proporcional</div>
+        <div class="flex-none w-32 bg-green-300 p-4 text-center">flex-none w-32</div>
+        <div class="flex-auto bg-blue-300 p-4 text-center">flex-auto → Se expande con base</div>
+    </div>
+    <div class="flex justify-between mt-4 bg-gray-200 p-4">
+        <div>justify-between → extremos</div>
+        <div>Elemento</div>
+        <div>Elemento</div>
+    </div>
+    <div class="flex items-center h-24 bg-gray-200 p-4 mt-4">
+        <div class="bg-yellow-400 p-2">items-center → centra verticalmente</div>
+    </div>
+</section>
+
+<!-- GRID AVANZADO -->
+<section class="mb-12">
+    <h2 class="text-2xl font-semibold mb-4">➕ Grid Avanzado</h2>
+    <div class="grid grid-cols-4 gap-2 bg-gray-100 p-4 mb-4">
+        <div class="col-span-2 bg-purple-300 p-4">col-span-2</div>
+        <div class="col-span-2 bg-purple-300 p-4">col-span-2</div>
+        <div class="row-span-2 bg-purple-500 p-4">row-span-2</div>
+        <div class="bg-purple-300 p-4">1</div>
+        <div class="bg-purple-300 p-4">2</div>
+    </div>
+    <div class="grid grid-rows-2 grid-flow-col gap-2 bg-gray-100 p-4">
+        <div class="bg-green-300 p-4">A</div>
+        <div class="bg-green-300 p-4">B</div>
+        <div class="bg-green-300 p-4">C</div>
+        <div class="bg-green-300 p-4">D</div>
+    </div>
+</section>
+
+</body>
+</html>
